@@ -2,6 +2,7 @@ package movedog;
 import javax.swing.JFrame;
 
 public class puppy {
+	/*
 	public static void main(String args[]){
 		JFrame f = new JFrame();
 		second s = new second();
@@ -11,5 +12,5 @@ public class puppy {
 		f.setSize(800, 600);
 	}
 
-
+*/
 }
