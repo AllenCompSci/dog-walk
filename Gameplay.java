@@ -28,7 +28,10 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 	private int ballYdir = -2;
 	
 	private MapGenerator map;
-
+	
+	private BufferedImages HEAD;
+	private Texture catchmeoutside;
+	
 	public Gameplay() {
 		map = new MapGenerator(3, 7);
 		addKeyListener(this);
@@ -37,7 +40,16 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 		timer = new Timer(delay, this);
 		timer.start();
 	}
-
+	
+	private void loadImages(){
+		try{
+			HEAD = ImageIO.read(this.getClass().getResource("cachemeoutsidegirl.png")); /// CHANGE NAME TO FIT FILE
+			catchmeoutside = new TexturePaint(HEAD, new Rectangle(0, 0, 40, 40));
+		}
+		catch(Exeception e){
+			
+		}
+	}
 
 	public void paint(Graphics g){
 		// background of game
@@ -65,7 +77,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 		g.fillRect(playerX, 550, 100, 8);
 		
 		// cash me outside face it's a ball right now
-		g.setColor(Color.yellow);
+		g.setPaint(catchmeoutside);
 		g.fillOval(ballposX, ballposY, 20, 20);
 		
 		if(totalBricks <= 0){
